@@ -6,6 +6,28 @@ namespace GradeBook.Test
     [TestClass]
     public class TypeTest
     {
+  
+        [TestMethod]
+        [TestCategory("Book Test")]
+        public void StringBehaveLikeValueTypes()
+        {
+            string name = "Alex";
+            var upper = MakeUpperCase(name);
+
+            Assert.AreEqual(name, "Alex");
+            Assert.AreEqual(upper, "ALEX");
+        }       
+
+        [TestMethod]
+        [TestCategory("Book Test")]
+        public void Test1()
+        {
+            var x = GetInt();
+            SetInt(x);
+            
+            Assert.AreEqual(3, x);
+        }
+
         [TestMethod]
         [TestCategory("Book Test")]
         public void CSharpCanPassByRef()
@@ -57,8 +79,7 @@ namespace GradeBook.Test
             //act
 
             //assert
-            Assert.AreEqual("New Name", book1.Name);
-            
+            Assert.AreEqual("New Name", book1.Name);         
         }
 
         [TestMethod]
@@ -100,6 +121,21 @@ namespace GradeBook.Test
         private void SetName(Book book, string name)
         {
             book.Name = name;
+        }
+
+        private void SetInt(int x)
+        {
+            x = 42;
+        }
+
+        private int GetInt()
+        {
+            return 3;
+        }
+
+        private string MakeUpperCase(string parameter)
+        {
+            return parameter.ToUpper();
         }
     }
 }

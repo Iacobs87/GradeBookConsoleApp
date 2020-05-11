@@ -6,6 +6,20 @@ namespace GradeBook.Test
     [TestClass]
     public class BookTests
     {
+
+        [TestMethod]
+        [TestCategory("Book Test")]
+        public void TestInvalidGradeValue()
+        {
+           
+            var book = new Book("Catologul lui Alex");
+            book.AddGrade(200);
+
+
+
+     
+
+        }
         [TestMethod]
         [TestCategory("Book Test")]
         public void BookCalculatesStatistics()
@@ -24,6 +38,7 @@ namespace GradeBook.Test
             Assert.AreEqual(85.6, result.Average, 1);
             Assert.AreEqual(90.5, result.High, 1);
             Assert.AreEqual(77.3, result.Low, 1);
+            Assert.AreEqual('B', result.Letter);
 
         }
     }
