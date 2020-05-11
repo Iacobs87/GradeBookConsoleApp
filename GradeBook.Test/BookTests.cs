@@ -7,8 +7,8 @@ namespace GradeBook.Test
     public class BookTests
     {
         [TestMethod]
-        [TestCategory("Unit Test")]
-        public void TestMethod1()
+        [TestCategory("Book Test")]
+        public void BookCalculatesStatistics()
         {
             //arange 
 
