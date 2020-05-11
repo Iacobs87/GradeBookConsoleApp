@@ -13,13 +13,19 @@ namespace GradeBook
         {
 
             var book = new Book("Catologul lui Alex");
+            book.GradeAdded += OnGradeAdded;
+            book.GradeAdded += OnGradeAdded;
+            book.GradeAdded -= OnGradeAdded;
+            book.GradeAdded += OnGradeAdded;
+
+
             //  book.AddGrade(89.1);
             //  book.AddGrade(90.5);
             //  book.AddGrade(77.5);
 
-            
 
-            while(true)
+
+            while (true)
             {
                 Console.WriteLine("Enter a grade or 'q' tp quit");
                 var input = Console.ReadLine();
@@ -59,5 +65,11 @@ namespace GradeBook
             Console.WriteLine($"The letter grade is {stats.Letter}");
 
         }
+
+        static void OnGradeAdded(object sender, EventArgs e)
+        {
+            Console.WriteLine("A grade was added");
+        }
+
     }
 }

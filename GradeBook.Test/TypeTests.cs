@@ -6,7 +6,37 @@ namespace GradeBook.Test
     [TestClass]
     public class TypeTest
     {
-  
+        int count = 0;
+
+        [TestMethod]
+        [TestCategory("Delegate Test")]
+        public void WriteLogDelegateCanPointToMethod()
+        {
+
+            WriteLogDelegate log = ReturnMessage;
+
+            log += ReturnMessage;
+            log += IncrementCount;
+
+            var result = log("Hello!");
+            Assert.AreEqual(3, count);
+
+        }
+
+        private string IncrementCount(string message)
+        {
+            count++;
+            return message.ToLower();
+
+        }
+
+        private string ReturnMessage(string message)
+        {
+            count++;
+            return message;
+            
+        }
+
         [TestMethod]
         [TestCategory("Book Test")]
         public void StringBehaveLikeValueTypes()

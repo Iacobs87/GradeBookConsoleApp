@@ -3,23 +3,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GradeBook.Test
 {
+
+    public delegate string WriteLogDelegate(string logMessage);
+
     [TestClass]
     public class BookTests
     {
 
-        [TestMethod]
-        [TestCategory("Book Test")]
-        public void TestInvalidGradeValue()
-        {
-           
-            var book = new Book("Catologul lui Alex");
-            book.AddGrade(200);
-
-
-
-     
-
-        }
+   
         [TestMethod]
         [TestCategory("Book Test")]
         public void BookCalculatesStatistics()
